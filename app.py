@@ -1,12 +1,9 @@
-#import
-from flask import Flask, jsonify
+from flask import Flask
+from routes.login import login_bp
 
 app = Flask(__name__)
 
-#requisição
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({"mensagem" : "olá"}), 200
+app.register_blueprint(login_bp, )
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5000)
